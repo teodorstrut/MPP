@@ -1,0 +1,6 @@
+rootProject.name = 'Lab_9'
+include 'rent_core'
+include 'rent_web'
+include 'rent_client'
+
+
