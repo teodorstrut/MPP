@@ -2,7 +2,7 @@ package rental.client.Console.Command;
 
 import org.springframework.web.client.RestTemplate;
 import rental.client.Console.InputConverter;
-import rental.core.module.Client;
+
 import rental.webgigel.dto.ClientDto;
 
 import java.util.List;
