@@ -42,7 +42,7 @@ public class ClientService implements IClientService {
 
     @Override
     public void remove(Long l) {
-        log.trace("MovieService delete: id={}", l);
+        log.trace("ClientService delete: id={}", l);
 
         repo.deleteById(l);
 
@@ -52,7 +52,7 @@ public class ClientService implements IClientService {
     @Override
     @Transactional
     public Client update(Long l, Client elem) {
-        log.trace("MovieService update: id={},movie={}", l, elem);
+        log.trace("ClientService update: id={},movie={}", l, elem);
 
         Optional<Client> optionalClient = repo.findById(l);
         Client result = optionalClient.orElse(elem);
@@ -61,6 +61,17 @@ public class ClientService implements IClientService {
 
         log.trace("update: result={}", result);
 
+        return result;
+    }
+
+    public List<Client> filter(String name){
+        log.trace("ClientService filter: name={}", name);
+
+        List<Client> result=repo.findAll();
+        for(Client c: result){
+            if(!c.getName().contains(name))
+                result.remove(c);
+        }
         return result;
     }
 }

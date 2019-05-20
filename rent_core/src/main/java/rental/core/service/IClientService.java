@@ -9,6 +9,8 @@ import java.util.List;
 public interface IClientService {
     List<Client> getAll();
 
+    List<Client> filter(String name);
+
     Client add(Client elem);
 
     void remove(Long id);

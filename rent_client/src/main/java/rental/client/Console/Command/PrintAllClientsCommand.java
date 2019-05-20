@@ -1,8 +1,10 @@
 package rental.client.Console.Command;
 
 import org.springframework.web.client.RestTemplate;
+import rental.webgigel.dto.ClientsDto;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Command for printing all clients
@@ -22,7 +24,10 @@ public class PrintAllClientsCommand extends Command {
      */
     @Override
     public void execute(List<String> params) {
-//        clientService.getAll().forEach(System.out::println);
+        Objects.requireNonNull(template.getForObject(
+                "http://localhost:8080/api/clients",
+                ClientsDto.class
+        )).getClients().forEach(System.out::println);
     }
 
     /**

@@ -37,6 +37,18 @@ public class ClientController {
         return result;
     }
 
+    @RequestMapping(value="/clients/filter", method = RequestMethod.GET)
+    ClientsDto filterClients(@RequestParam String name){
+        log.trace("filterClients: name{} --- method started",name);
+        List<Client> clients = service.filter(name);
+        Set<ClientDto> dtos = converter.convertModelsToDtos(clients);
+        ClientsDto result = new ClientsDto(dtos);
+
+        log.trace("getAllClients: result={}", result);
+
+        return result;
+    }
+
     @RequestMapping(value = "/clients", method = RequestMethod.POST)
     ClientDto addClient(@RequestBody ClientDto dto) {
         log.trace("addClient: dto={}", dto);
