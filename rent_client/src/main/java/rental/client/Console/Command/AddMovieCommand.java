@@ -21,7 +21,6 @@ public class AddMovieCommand extends Command{
     public void execute(List<String> params) {
         MovieDto movie = MovieDto.builder()
                 .name(params.get(0))
-                .date(InputConverter.readDate(params.get(1)))
                 .build();
 
         template.postForObject("http://localhost:8080/api/movies",
@@ -35,11 +34,11 @@ public class AddMovieCommand extends Command{
      */
     @Override
     public Integer paramNr() {
-        return 2;
+        return 1;
     }
 
     @Override
     public String params() {
-        return "<Name>,<Address>";
+        return "<Name>";
     }
 }

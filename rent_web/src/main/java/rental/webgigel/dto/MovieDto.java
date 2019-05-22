@@ -12,5 +12,4 @@ import java.time.LocalDate;
 @Builder
 public class MovieDto extends BaseDto {
     private String name;
-    private LocalDate date;
 }

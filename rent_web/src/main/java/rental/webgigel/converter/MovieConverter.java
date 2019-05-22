@@ -10,7 +10,6 @@ public class MovieConverter extends BaseConverter<Movie, MovieDto> {
     public Movie convertDtoToModel(MovieDto dto) {
         Movie movie = Movie.builder()
                 .name(dto.getName())
-                .date(dto.getDate())
                 .build();
         movie.setId(dto.getId());
 
@@ -21,7 +20,6 @@ public class MovieConverter extends BaseConverter<Movie, MovieDto> {
     public MovieDto convertModelToDto(Movie movie) {
         MovieDto dto = MovieDto.builder()
                 .name(movie.getName())
-                .date(movie.getDate())
                 .build();
         dto.setId(movie.getId());
 
